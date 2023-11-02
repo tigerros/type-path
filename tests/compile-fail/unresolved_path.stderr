@@ -1,0 +1,10 @@
+error[E0432]: unresolved import `std::io::BufWrirer`
+ --> tests/compile-fail/unresolved_path.rs:4:5
+  |
+4 |     type_path!(::std::io::BufWrirer);
+  |     ^^^^^^^^^^^^^^^^^^^^^^---------^
+  |     |                     |
+  |     |                     help: a similar name exists in the module: `BufWriter`
+  |     no `BufWrirer` in `io`
+  |
+  = note: this error originates in the macro `type_path` (in Nightly builds, run with -Z macro-backtrace for more info)

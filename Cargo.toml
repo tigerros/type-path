@@ -1,0 +1,14 @@
+[package]
+name = "type-path"
+version = "0.1.0"
+edition = "2021"
+authors = ["Leonard. D <tigerros.gh@gmail.com>"]
+description = "Get the string array representation of a Rust type path"
+license = "MIT"
+repository = "https://github.com/tigerros/type-path"
+keywords = ["reflection", "macros", "no-std"]
+categories = ["rust-patterns", "no-std"]
+include = ["src/lib.rs", "README.md"]
+
+[dev-dependencies]
+trybuild = "1.0.0"

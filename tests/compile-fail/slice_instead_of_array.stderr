@@ -1,0 +1,7 @@
+error[E0308]: mismatched types
+ --> tests/compile-fail/slice_instead_of_array.rs:3:38
+  |
+3 | const ITER_REPEAT_PATH: &[&str; 4] = type_path!(::std::iter::repeat);
+  |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `&[&str; 4]`, found `[&str; 4]`
+  |
+  = note: this error originates in the macro `type_path` (in Nightly builds, run with -Z macro-backtrace for more info)

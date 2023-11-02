@@ -1,6 +1,6 @@
 [package]
 name = "type-path"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Leonard. D <tigerros.gh@gmail.com>"]
 description = "Get the string array representation of a Rust type path"

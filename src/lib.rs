@@ -88,6 +88,7 @@ pub const fn trim(this: &str) -> &str {
 /// Macro with one empty pattern `() => {};`.
 /// Used for enforcing that a meta variable (e.g., `$foo:tt`) is empty.
 #[macro_export]
+#[doc(hidden)]
 macro_rules! empty {
     () => {};
 }

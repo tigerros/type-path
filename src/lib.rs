@@ -2,7 +2,8 @@
 
 //! # Guide
 //!
-//! The crate has just one macro: [`type_path!`](type_path). Check it out for syntax and returning details.
+//! The crate has just one macro: [`type_path!`](type_path).
+//! Check it out for syntax and details about what it returns.
 //!
 //! You might be wondering why we're using an absolute path in the following example:
 //!
@@ -71,7 +72,6 @@ const fn bytes_trim(this: &[u8]) -> &[u8] {
 }
 
 /// **This is not intended to be used outside of this crate!**
-/// It's public because [`type_path!`](type_path) includes it in the expansion.
 ///
 /// Trims a string at compile time.
 #[doc(hidden)]
@@ -94,21 +94,20 @@ macro_rules! empty {
 
 /// # Syntax
 ///
-/// *Ignore the macro source. It might be confusing and not helpful.*
+/// There's 2 patterns:
 ///
-/// There's 3 patterns:
-///
-/// - `::` prefix, with 1+ [identifiers] separated by `::`. E.g., `::path::to::Item`.
+/// - `::` prefix, with 1+ [identifiers] separated by `::`, with an optional `*` at the end.
+/// E.g., `::path::to::Item`, `::path:to::prelude::*`.
 /// This is an absolute path and will be resolved from the root of your project, regardless of scope.
 /// - Same as the first pattern, but with a `crate` prefix.
 /// Use this when you need to use types from the current crate.
-/// - Same as the first pattern, but ending in `::*`. E.g., `::path::to::prelude::*`.
 ///
 /// # Returns
 ///
 /// `[&'static str; N]`, where `N` is the amount of segments in the path, and `&str` is the segment.
 ///
 /// The first item in the string array will be `"::"` or `"crate"`, depending on which prefix you use.
+/// The last item will be `"*"` if the last segment in your path is `*`.
 ///
 /// [identifiers]: https://doc.rust-lang.org/reference/identifiers.html "Rust identifier reference"
 #[macro_export]

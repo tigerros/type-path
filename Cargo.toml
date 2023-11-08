@@ -10,5 +10,13 @@ keywords = ["reflection", "macros", "no-std"]
 categories = ["rust-patterns", "no-std"]
 include = ["src/lib.rs", "README.md"]
 
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "2.0.39"
+quote = "1.0.33"
+proc-macro2 = "1.0.69"
+
 [dev-dependencies]
 trybuild = "1.0.0"

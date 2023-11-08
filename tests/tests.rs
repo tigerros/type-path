@@ -1,6 +1,7 @@
 #![allow(non_ascii_idents)]
 #![allow(uncommon_codepoints)]
 
+use type_path::inaccessible_type_path;
 use type_path::type_path;
 
 #[test]
@@ -33,6 +34,15 @@ mod foo {
         pub const BAZ: bool = false;
         pub const FOZ: bool = false;
     }
+
+    mod private_mod {}
+}
+
+#[test]
+fn private_path() {
+    inaccessible_type_path!(crate::foo::private_mod);
+
+    assert_eq!(PATH_CRATE_FOO_PRIVATE_MOD, ["crate", "foo", "private_mod"]);
 }
 
 #[test]
@@ -77,9 +87,9 @@ mod 例 {
 fn non_ascii_chars() {
     // Whitespace to test trimming
     assert_eq!(type_path!(
-        
+
         crate::      例::
-        
+
         傅), ["crate", "例", "傅"]);
 
     assert_eq!(type_path!(

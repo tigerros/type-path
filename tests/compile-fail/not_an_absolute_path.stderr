@@ -1,0 +1,5 @@
+error: expected `::` or `crate`
+ --> tests/compile-fail/not_an_absolute_path.rs:4:16
+  |
+4 |     type_path!(std::io::BufWriter);
+  |                ^^^
